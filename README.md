@@ -26,7 +26,11 @@
 | `1.14.2` |       |
 | `1.14.3` |       |
 | `1.14.4` |       |
-| `latest` | Build the latest Spigot jar (1.13.2 at the time of this writing) |
+| `1.15`   |       |
+| `1.15.1` |       |
+| `1.15.2` |       |
+| `1.16.1` | 1.16 is not supported by spigot as 1.16.1 was released so quickly after it. |
+| `latest` | Build the latest Spigot jar (1.16.1 at the time of this writing) |
 
 # Docker Bukkit
 
@@ -41,6 +45,12 @@ To start the server and accept the EULA in one fell swoop, just pass the `EULA=t
 To run in the background (recommended), add the `-d` flag.
 
 **NOTE**: At this point in time, the `-it` flags are **_strongly recommended_** as without them, the server appears to try to hog 100% of the CPU. We are working on a solution.
+
+### Java Memory
+
+To help control memory usage we have `InitRAM` and `MaxRAM` enviornmenent variables. These variables are set to `1g` and `2g` respectively by default. These variables map to `-Xms` and `-Xmx`. 
+
+If you wish to support more players and plugins, it is highly encourage to increase these variables. You can find more information here: https://minecraft.gamepedia.com/Server/Requirements/Dedicated
 
 ### Spigot included
 
@@ -111,6 +121,22 @@ A full list of `server.properties` settings and their corresponding environment 
 | spawn-npcs                    | SPAWN_NPCS                    | `true`                                                           |
 | view-distance                 | VIEW_DISTANCE                 | `10`                                                             |
 | white-list                    | WHITE_LIST                    | `false`                                                          |
+| enable-jmx-monitoring         | ENABLE_JMX_MONITORING         | `false`                                                          |
+| rcon.port                     | RCON_PORT                     | `25575`                                                          |
+| query.port                    | QUERY_PORT                    | `25565`                                                          |
+| use-native-transport          | USE_NATIVE_TRANSPORT          | `true`                                                           |
+| enable-status                 | ENABLE_STATUS                 | `true`                                                           |
+| broadcast-rcon-to-ops         | BROADCAST_RCON_TO_OPS         | `true`                                                           |
+| sync-chunk-writes             | SYNC_CHUNK_WRITES             | `true`                                                           |
+| op-permission-level           | OP_PERMISSION_LEVEL           | `4`                                                              |
+| entity-broadcast-range-percentage | ENTITY_BROADCAST_RANGE_PERCENTAGE | `100`                                                    |
+| rcon.password                 | RCON_PASSWORD                 | ` `                                                              |
+| rate-limit                    | RATE_LIMIT                    | `0`                                                              |
+| broadcast-console-to-ops      | BROADCAST_CONSOLE_TO_OPS      | `true`                                                           |
+| function-permission-level     | FUNCTION_PERMISSION_LEVEL     | `2`                                                              |
+| enforce-whitelist             | ENFORCE_WHITELIST             | `false`                                                          |
+| resource-pack-sha1            | RESOURCE_PACK_SHA1            | ` `                                                              |
+| spawn-protection              | SPAWN_PROTECTION              | `16`                                                             |
 
 
 ### Running a specific version
